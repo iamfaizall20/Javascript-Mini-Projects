@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+body{
+    position: relative;
+    min-height: 100svh;
+    background: #301934;
+}
+/* ----- Navbar -----  */
+.navbar{
+    padding: 20px 50px;
+    height: 80px;
+}
+.navbar h2{
+    font-size: 22.5px;
+    position: fixed;
+    color: #e9e9e9;
+}
+
+.main{
+    display: flex;
+    height: calc(100vh - 80px);
+}
+/* ----- Details Section ----- */
+.details-section{
+    position: fixed;
+    width: 40%;
+}
+.details-section h1{
+    color: #e9e9e9;
+    margin: 40px 0px 60px 50px;
+    font-family: 'Oswald';
+    font-size: 55px;
+    line-height: 65px;
+}
+.details-section button{
+    margin-left: 50px;
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    background: #CBA3E3;
+    font-weight: 550;
+    font-size: 18px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.Add-Note-Btn span{
+    display: flex;
+    align-items: center;
+}
+.Add-Note-Btn span i{
+    font-size: 23px;
+}
+/* ----- Modals Design -----  */
+
+/* --- Add Modal ---  */
+.addNoteModal.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+}
+.overlay.show{
+    opacity: 1;
+    pointer-events: all;
+}
+.addNoteModal{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -30%);
+    height: 450px;
+    width: 420px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 70px 10px #301934;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    color: #e9e9e9;
+    transition: all 0.15s ease;
+    z-index: 1000;
+}
+.overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.15s ease;
+}
+.addNoteModal h3{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.addNoteModal i{
+    position: absolute;
+    right: 25px;
+    top: 14px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 3px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+        background: #c00f21;
+    }
+}
+.addNoteModal label{
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+.addNoteModal .field{
+    background: none;
+    border: 1px solid #ccc;
+    outline: none;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 16.5px;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+    resize: none;
+    
+    &::placeholder{
+        color: #ccc;
+        opacity: 0.6;
+    }
+}
+.addNoteModal button{
+    background: #CBA3E3;
+    font-weight: 550;
+    border: none;
+    outline: none;
+    font-size: 16.5px;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* ----- notes section ----- */
+.notes-section{
+    position: absolute;
+    right: 0;
+    top: 35px;
+    width: 60%;
+    color: #e9e9e9;
+    padding: 10px 50px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+.note{
+    height: 180px;
+    width: 340px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.note h2{
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-right: 8px;
+    line-height: 27px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.note p{
+    font-size: 16px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0.8;
+}
+.note i{
+    font-size: 20px;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover{
+        background: #c00f21;
+        
+    }
+}
+.viewNoteModal{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -30%);
+    width: 420px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 70px 10px #301934;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    color: #e9e9e9;
+    transition: all 0.15s ease;
+    z-index: 1000;   
+}
+.viewNoteModal.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+}
+.viewNoteModal h2{
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 25px;
+}
+@media (max-width: 970px) {
+    .main{
+        flex-direction: column;
+    }
+    .details-section{
+        width: 100%;
+        height: 45vh;
+    }
+    .details-section h1{
+        margin: 40px 50px 60px;
+    }
+    .notes-section{
+        width: 100%;
+        top: auto;
+        bottom: 0;
+        height: 60vh;
+        padding: 40px;
+    }
+    .note{
+        width: 250px;
+        height: 150px;
+    }
+}
+@media (max-width:500px) {
+    .main{
+        flex-direction: column;
+    }
+    .details-section{
+        width: 100%;
+        height: 45svh;
+        position: relative;
+    }
+    .navbar{
+        padding: 20px;
+    }
+    .navbar h2{
+        position: relative;
+        font-size: 20px;
+    }
+    .details-section h1{
+        margin: 20px 20px 50px;
+        font-size: 40px;
+        line-height: 45px;
+    }
+    .details-section button{
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    .addNoteModal{
+        width: 330px;
+    }
+    .notes-section{
+        width: 100%;
+        top: auto;
+        bottom: 0;
+        height: 55svh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .note{
+        width: 100%;
+        height: 120px;
+    }
+    .note h2{
+        margin-right: 12px;
+    }
+    .viewNoteModal{
+        width: 330px;
+    }
+}

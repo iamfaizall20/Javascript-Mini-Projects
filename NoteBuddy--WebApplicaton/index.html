@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteBuddy | your notes companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Assets/tab-icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navbar  -->
+    <nav class="navbar">
+        <h2>NoteBuddy</h2>
+    </nav>
+
+    <div class="main">
+        <!-- Details for Note Section -->
+        <div class="details-section">
+            <h1>Not Just a Notes App - A Companion for Creative Minds.</h1>
+            <button class="Add-Note-Btn">Add Note <span><i class="ri-arrow-right-double-line"></i></span></button>
+        </div>
+
+        <!-- Notes Section -->
+
+        <div class="notes-section">
+        </div>
+        <!-- -- Note Options -- -->
+        <!-- Modals -->
+
+        <!-- Add note Modal  -->
+        <div class="overlay"></div>
+
+        <div class="addNoteModal modal">
+            <h3>Add Note Details</h3>
+            <i onclick="closeNoteModal()" class="ri-close-line"></i>
+            <label for="title">Title</label>
+            <input type="text" id="title-field" class="field" placeholder="e.g. Startup Ideas to Explore">
+
+            <label for="description">Description</label>
+            <textarea id="description-field" class="field" placeholder="A curated collection of innovative...."
+                cols="30" rows="10"></textarea>
+            <button class="saveNoteBtn">Save Note</button>
+        </div>
+
+        <div class="viewNoteModal">
+            <h2 class="modal-Title"></h2>
+            <p class="modal-Description"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
