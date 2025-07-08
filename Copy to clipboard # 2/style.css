@@ -1,0 +1,67 @@
+/* Adding custom font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans',sans-serif;
+}
+html,body{
+    min-height: 100vh;
+    background-color: #edf2fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    position: relative;
+}
+#textInput{
+    border: 1.2px solid #333;
+    background: transparent;
+    outline: none;
+    padding: 16px 10px 9px 10px;
+    font-size: 16.5px;
+    border-radius: 5px;
+    width: 20em;
+}
+
+/* Styling for Placeholder */
+.placeholder{
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: 0.4s ease;
+}
+#textInput:focus ~ .placeholder{
+    transform: translateY(-140%);
+    left: 10px;
+    opacity: 0.6;
+    font-size: 0.75em;
+}
+/* Adding Stlying for Copy Icons */
+.copyLabel > span{
+    position: absolute;
+    top: 55%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 5px;
+    background: #edf2fb;
+    cursor: pointer;
+}
+.copyLabel > span:nth-child(1){
+    z-index: 2;
+}
+.copyLabel > span:nth-child(2){
+    opacity: 0;
+    pointer-events: none;
+}
+
+.copyLabel.copied > span:nth-child(2){
+    opacity: 1;
+    color: #006400;
+    font-size: 1.4em;
+    z-index: 5;
+}
